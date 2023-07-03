@@ -16,7 +16,7 @@ const OrdersPage = () => {
   useEffect(() => {
     const takeData = async () => {
       try {
-        const response = await fetch(`${PREFIX_API_URL}/api/order-car`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_PREFIX_API_URL}/api/order-car`);
         const orders = await response.json();
         setOrders(orders);
       } catch (error) {

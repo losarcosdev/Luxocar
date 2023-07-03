@@ -1,4 +1,3 @@
-import { PREFIX_API_URL } from "@/constants";
 import { OrderCreatedResponse } from "@/interfaces";
 import { calcTotalRent } from "@/utils";
 import axios from "axios";
@@ -72,7 +71,7 @@ export const useCreateOrder = ({ carId, pricePerDay }: Props) => {
 
     try {
       const { data }: { data: OrderCreatedResponse } = await axios.post(
-        `${PREFIX_API_URL}/api/order-car`,
+        `${process.env.NEXT_PUBLIC_PREFIX_API_URL}/api/order-car`,
         orderData
       );
 

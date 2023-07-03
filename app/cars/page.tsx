@@ -1,6 +1,5 @@
 import { CarList, Filters } from "./components";
 import axios from "axios";
-import { PREFIX_API_URL } from "@/constants";
 
 export const revalidate = 30;
 
@@ -9,7 +8,7 @@ const CarsPage = async ({ searchParams }: any) => {
   const carType = searchParams.carType || "";
 
   const { data: cars } = await axios.get(
-    `${PREFIX_API_URL}/api/car/?carType=${carType}&brand=${brand}`
+    `${process.env.NEXT_PUBLIC_PREFIX_API_URL}/api/car/?carType=${carType}&brand=${brand}`
   );
 
   const NonCars = !Array.isArray(cars) || !cars.length;

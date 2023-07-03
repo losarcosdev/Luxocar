@@ -2,7 +2,6 @@ import { IOrderCar } from "@/interfaces";
 import { convertDate } from "@/utils";
 import Image from "next/image";
 import { PayPalActions } from "./components";
-import { PREFIX_API_URL } from "@/constants";
 
 interface Params {
   params: {
@@ -12,7 +11,7 @@ interface Params {
 
 const OrderPage = async ({ params }: Params) => {
   const response = await fetch(
-    `${PREFIX_API_URL}/api/order-car/${params.orderId}`,
+    `${process.env.NEXT_PUBLIC_PREFIX_API_URL}/api/order-car/${params.orderId}`,
     { cache: "no-cache" }
   );
 

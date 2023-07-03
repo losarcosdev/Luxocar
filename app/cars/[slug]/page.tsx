@@ -1,10 +1,11 @@
-import { CarResponse, SingleCarResponse } from "@/interfaces";
+import { SingleCarResponse } from "@/interfaces";
 import { CarSlideShow } from "../components";
 import { MakeOrder } from "./components";
-import { PREFIX_API_URL } from "@/constants";
 
 const getCar = async (slug: string): Promise<SingleCarResponse> => {
-  const response = await fetch(`${PREFIX_API_URL}/api/car/${slug}`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_PREFIX_API_URL}/api/car/${slug}`
+  );
   const car: SingleCarResponse = await response.json();
 
   if (!car) throw new Error("Car not found");
@@ -74,7 +75,5 @@ const CarPage = async ({ params }: Props) => {
     </section>
   );
 };
-
-
 
 export default CarPage;
