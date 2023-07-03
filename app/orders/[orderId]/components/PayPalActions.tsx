@@ -33,7 +33,7 @@ export const PayPalActions = ({ order }: Props) => {
     try {
       const transactionId = details.id;
       const { data } = await axios.post(
-        "http://localhost:3000/api/order-car/pay",
+        `${process.env.NEXT_PUBLIC_PREFIX_API_URL}/api/order-car/pay`,
         {
           transactionId,
           orderId: order._id,
