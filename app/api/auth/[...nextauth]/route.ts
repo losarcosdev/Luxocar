@@ -51,6 +51,11 @@ const authOptions = NextAuth({
     maxAge: 2592000,
   },
 
+  pages: {
+    signIn: "/auth/login",
+    newUser: "/auth/register",
+  },
+
   callbacks: {
     async signIn({ user, account, profile }): Promise<any> {
       const authUser = user as any;

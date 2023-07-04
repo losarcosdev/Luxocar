@@ -35,9 +35,11 @@ export const POST = async (request: Request): Promise<NextResponse> => {
     password: bcrypt.hashSync(password),
   });
 
+  console.log(newUser);
+
   await db.disconnect();
 
-  const accessToken = jwt.signJwtAccessToken(newUser);
+  const accessToken = jwt.signJwtAccessToken({ ...newUser });
 
   return NextResponse.json(
     {
