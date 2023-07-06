@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { BrandsList } from "./BrandsList";
+import Link from "next/link";
 
 export const AboutUs = () => {
   return (
@@ -54,10 +55,13 @@ export const AboutUs = () => {
               perfect car that suits your needs and elevates your driving
               experience to a whole new level.
             </p>
-            <button className="active:scale-95 text-gray-100 bg-[#131313] hover:opacity-80 duration-200 p-3 border-[#2b2b2b] border-[1px] w-fit font-sans flex gap-5 items-center justify-between">
+            <Link
+              href={"/cars"}
+              className="active:scale-95 text-gray-100 bg-[#131313] hover:opacity-80 duration-200 p-3 border-[#2b2b2b] border-[1px] w-fit font-sans flex gap-5 items-center justify-between"
+            >
               Fleet
               <ArrowUpRight />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
